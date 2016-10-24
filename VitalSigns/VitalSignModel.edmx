@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="heightsemr_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countryid" />
+          </Key>
+          <Property Name="countryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryname" Type="varchar" MaxLength="200" />
+          <Property Name="dateadded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="enrollee_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="ProviderID" Type="int" />
+        </EntityType>
+        <EntityType Name="HMO">
+          <Key>
+            <PropertyRef Name="hmoid" />
+          </Key>
+          <Property Name="hmoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hmoname" Type="varchar" MaxLength="500" />
+          <Property Name="hmoaddress" Type="varchar(max)" />
+          <Property Name="stateid" Type="int" />
+          <Property Name="hmocountry" Type="varchar" MaxLength="50" />
+          <Property Name="hmocontact" Type="varchar" MaxLength="500" />
+          <Property Name="hmophone1" Type="varchar" MaxLength="50" />
+          <Property Name="hmophone2" Type="varchar" MaxLength="50" />
+          <Property Name="dateadded" Type="date" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="typeid" Type="int" />
+          <Property Name="hmonumber" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="patientid" />
+          </Key>
+          <Property Name="patientid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="staffid" Type="int" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="date" />
+          <Property Name="securityid" Type="varchar" MaxLength="50" />
+          <Property Name="securitynumber" Type="varchar" MaxLength="50" />
+          <Property Name="maritalstatus" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="stateid" Type="int" />
+          <Property Name="city" Type="varchar" MaxLength="100" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="postalcode" Type="varchar" MaxLength="50" />
+          <Property Name="mothername" Type="varchar" MaxLength="100" />
+          <Property Name="guardianname" Type="varchar" MaxLength="100" />
+          <Property Name="emergencycontact" Type="varchar" MaxLength="500" />
+          <Property Name="emergencyphone" Type="varchar" MaxLength="50" />
+          <Property Name="homephone" Type="varchar" MaxLength="50" />
+          <Property Name="workphone" Type="varchar" MaxLength="50" />
+          <Property Name="mobilephone" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="occupation" Type="varchar" MaxLength="500" />
+          <Property Name="photopath" Type="varchar" MaxLength="500" />
+          <Property Name="employername" Type="varchar" MaxLength="500" />
+          <Property Name="employeraddress" Type="varchar(max)" />
+          <Property Name="employercity" Type="varchar" MaxLength="50" />
+          <Property Name="employerstateid" Type="int" />
+          <Property Name="employercountry" Type="varchar" MaxLength="50" />
+          <Property Name="dateofdeath" Type="date" />
+          <Property Name="deathcause" Type="varchar(max)" />
+          <Property Name="hmono1" Type="varchar" MaxLength="50" />
+          <Property Name="hmoname1" Type="varchar" MaxLength="250" />
+          <Property Name="hmono2" Type="varchar" MaxLength="50" />
+          <Property Name="hmoname2" Type="varchar" MaxLength="250" />
+          <Property Name="hmono3" Type="varchar" MaxLength="50" />
+          <Property Name="hmoname3" Type="varchar" MaxLength="250" />
+          <Property Name="principalcode" Type="varchar" MaxLength="50" />
+          <Property Name="relationship" Type="varchar" MaxLength="50" />
+          <Property Name="dateadded" Type="datetime" />
+          <Property Name="inactive" Type="bit" />
+          <Property Name="cardtypeid" Type="int" />
+          <Property Name="datedeactivated" Type="datetime" />
+          <Property Name="genotype" Type="varchar" MaxLength="50" />
+          <Property Name="bloodgroup" Type="varchar" MaxLength="50" />
+          <Property Name="ProviderID" Type="int" />
+          <Property Name="autoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicetype" Type="nvarchar(max)" />
+          <Property Name="plantype" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Personnel">
+          <Key>
+            <PropertyRef Name="staffid" />
+          </Key>
+          <Property Name="staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" />
+          <Property Name="titleid" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="mobilephone" Type="varchar" MaxLength="50" />
+          <Property Name="homephone" Type="varchar" MaxLength="50" />
+          <Property Name="workphone" Type="varchar" MaxLength="50" />
+          <Property Name="emergencycontact" Type="varchar" MaxLength="500" />
+          <Property Name="emergencyphone" Type="varchar" MaxLength="50" />
+          <Property Name="designationid" Type="int" />
+          <Property Name="deptid" Type="int" />
+          <Property Name="dateadded" Type="datetime" />
+          <Property Name="username" Type="nvarchar(max)" />
+          <Property Name="password" Type="nvarchar(max)" />
+          <Property Name="ProviderID" Type="int" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="stateid" />
+          </Key>
+          <Property Name="stateid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statename" Type="varchar" MaxLength="100" />
+          <Property Name="countryid" Type="int" />
+          <Property Name="dateadded" Type="date" />
+        </EntityType>
+        <EntityType Name="VitalSigns">
+          <Key>
+            <PropertyRef Name="vitalid" />
+          </Key>
+          <Property Name="vitalid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patientid" Type="varchar" MaxLength="50" />
+          <Property Name="staffid" Type="int" />
+          <Property Name="temperature" Type="varchar" MaxLength="50" />
+          <Property Name="pulse" Type="varchar" MaxLength="50" />
+          <Property Name="weight" Type="varchar" MaxLength="50" />
+          <Property Name="bloodpressure" Type="varchar" MaxLength="50" />
+          <Property Name="height" Type="varchar" MaxLength="50" />
+          <Property Name="respiration" Type="varchar" MaxLength="50" />
+          <Property Name="comments" Type="varchar(max)" />
+          <Property Name="isfileattached" Type="bit" />
+          <Property Name="docname" Type="varchar" MaxLength="250" />
+          <Property Name="docpath" Type="varchar" MaxLength="500" />
+          <Property Name="dateadded" Type="datetime" />
+          <Property Name="ProviderID" Type="int" />
+          <Property Name="BMI" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Patient_enrollee_type">
+          <End Role="enrollee_type" Type="Self.enrollee_type" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enrollee_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="cardtypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_State_country">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countryid" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VitalSigns_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="VitalSigns" Type="Self.VitalSigns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientid" />
+            </Principal>
+            <Dependent Role="VitalSigns">
+              <PropertyRef Name="patientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VitalSigns_Personnel">
+          <End Role="Personnel" Type="Self.Personnel" Multiplicity="0..1" />
+          <End Role="VitalSigns" Type="Self.VitalSigns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnel">
+              <PropertyRef Name="staffid" />
+            </Principal>
+            <Dependent Role="VitalSigns">
+              <PropertyRef Name="staffid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_HMO">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="HMO" Type="Self.HMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="stateid" />
+            </Principal>
+            <Dependent Role="HMO">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_Patient">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="stateid" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="heightsemr_dbModelStoreContainer">
+          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="enrollee_type" EntityType="Self.enrollee_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HMO" EntityType="Self.HMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personnel" EntityType="Self.Personnel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VitalSigns" EntityType="Self.VitalSigns" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Patient_enrollee_type" Association="Self.FK_Patient_enrollee_type">
+            <End Role="enrollee_type" EntitySet="enrollee_type" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_State_country" Association="Self.FK_State_country">
+            <End Role="country" EntitySet="country" />
+            <End Role="State" EntitySet="State" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VitalSigns_Patient" Association="Self.FK_VitalSigns_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="VitalSigns" EntitySet="VitalSigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VitalSigns_Personnel" Association="Self.FK_VitalSigns_Personnel">
+            <End Role="Personnel" EntitySet="Personnel" />
+            <End Role="VitalSigns" EntitySet="VitalSigns" />
+          </AssociationSet>
+          <AssociationSet Name="State_HMO" Association="Self.State_HMO">
+            <End Role="State" EntitySet="State" />
+            <End Role="HMO" EntitySet="HMO" />
+          </AssociationSet>
+          <AssociationSet Name="State_Patient" Association="Self.State_Patient">
+            <End Role="State" EntitySet="State" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="heightsemr_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="countryid" />
+          </Key>
+          <Property Name="countryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="dateadded" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="States" Relationship="Self.FK_State_country" FromRole="country" ToRole="State" />
+        </EntityType>
+        <EntityType Name="enrollee_type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderID" Type="Int32" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patient_enrollee_type" FromRole="enrollee_type" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="HMO">
+          <Key>
+            <PropertyRef Name="hmoid" />
+          </Key>
+          <Property Name="hmoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hmoname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="hmoaddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="stateid" Type="Int32" />
+          <Property Name="hmocountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hmocontact" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="hmophone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hmophone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateadded" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="typeid" Type="Int32" />
+          <Property Name="hmonumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="State" Relationship="Self.State_HMO" FromRole="HMO" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="patientid" />
+          </Key>
+          <Property Name="patientid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="staffid" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Precision="0" />
+          <Property Name="securityid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="securitynumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maritalstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="stateid" Type="Int32" />
+          <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="postalcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mothername" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="guardianname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="emergencycontact" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emergencyphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="homephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="workphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobilephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="occupation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="photopath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="employername" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="employeraddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="employercity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="employerstateid" Type="Int32" />
+          <Property Name="employercountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateofdeath" Type="DateTime" Precision="0" />
+          <Property Name="deathcause" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="hmono1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hmoname1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="hmono2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hmoname2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="hmono3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hmoname3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="principalcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateadded" Type="DateTime" Precision="3" />
+          <Property Name="inactive" Type="Boolean" />
+          <Property Name="cardtypeid" Type="Int32" />
+          <Property Name="datedeactivated" Type="DateTime" Precision="3" />
+          <Property Name="genotype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bloodgroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProviderID" Type="Int32" />
+          <Property Name="autoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="plantype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="enrollee_type" Relationship="Self.FK_Patient_enrollee_type" FromRole="Patient" ToRole="enrollee_type" />
+          <NavigationProperty Name="VitalSigns" Relationship="Self.FK_VitalSigns_Patient" FromRole="Patient" ToRole="VitalSigns" />
+          <NavigationProperty Name="State" Relationship="Self.State_Patient" FromRole="Patient" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Personnel">
+          <Key>
+            <PropertyRef Name="staffid" />
+          </Key>
+          <Property Name="staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="titleid" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="mobilephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="homephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="workphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emergencycontact" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emergencyphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="designationid" Type="Int32" />
+          <Property Name="deptid" Type="Int32" />
+          <Property Name="dateadded" Type="DateTime" Precision="3" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderID" Type="Int32" />
+          <NavigationProperty Name="VitalSigns" Relationship="Self.FK_VitalSigns_Personnel" FromRole="Personnel" ToRole="VitalSigns" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="stateid" />
+          </Key>
+          <Property Name="stateid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="countryid" Type="Int32" />
+          <Property Name="dateadded" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="country" Relationship="Self.FK_State_country" FromRole="State" ToRole="country" />
+          <NavigationProperty Name="HMOes" Relationship="Self.State_HMO" FromRole="State" ToRole="HMO" />
+          <NavigationProperty Name="Patients" Relationship="Self.State_Patient" FromRole="State" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="VitalSign">
+          <Key>
+            <PropertyRef Name="vitalid" />
+          </Key>
+          <Property Name="vitalid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patientid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="staffid" Type="Int32" />
+          <Property Name="temperature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pulse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bloodpressure" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="respiration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isfileattached" Type="Boolean" />
+          <Property Name="docname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="docpath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dateadded" Type="DateTime" Precision="3" />
+          <Property Name="ProviderID" Type="Int32" />
+          <Property Name="BMI" Type="String" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_VitalSigns_Patient" FromRole="VitalSigns" ToRole="Patient" />
+          <NavigationProperty Name="Personnel" Relationship="Self.FK_VitalSigns_Personnel" FromRole="VitalSigns" ToRole="Personnel" />
+        </EntityType>
+        <Association Name="FK_State_country">
+          <End Role="country" Type="Self.country" Multiplicity="0..1" />
+          <End Role="State" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="countryid" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="countryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_enrollee_type">
+          <End Role="enrollee_type" Type="Self.enrollee_type" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enrollee_type">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="cardtypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_HMO">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="HMO" Type="Self.HMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="stateid" />
+            </Principal>
+            <Dependent Role="HMO">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VitalSigns_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="VitalSigns" Type="Self.VitalSign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientid" />
+            </Principal>
+            <Dependent Role="VitalSigns">
+              <PropertyRef Name="patientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_Patient">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="stateid" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="stateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VitalSigns_Personnel">
+          <End Role="Personnel" Type="Self.Personnel" Multiplicity="0..1" />
+          <End Role="VitalSigns" Type="Self.VitalSign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnel">
+              <PropertyRef Name="staffid" />
+            </Principal>
+            <Dependent Role="VitalSigns">
+              <PropertyRef Name="staffid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="heightsemr_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="enrollee_type" EntityType="Self.enrollee_type" />
+          <EntitySet Name="HMOes" EntityType="Self.HMO" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Personnels" EntityType="Self.Personnel" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="VitalSigns" EntityType="Self.VitalSign" />
+          <AssociationSet Name="FK_State_country" Association="Self.FK_State_country">
+            <End Role="country" EntitySet="countries" />
+            <End Role="State" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_enrollee_type" Association="Self.FK_Patient_enrollee_type">
+            <End Role="enrollee_type" EntitySet="enrollee_type" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="State_HMO" Association="Self.State_HMO">
+            <End Role="State" EntitySet="States" />
+            <End Role="HMO" EntitySet="HMOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VitalSigns_Patient" Association="Self.FK_VitalSigns_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="VitalSigns" EntitySet="VitalSigns" />
+          </AssociationSet>
+          <AssociationSet Name="State_Patient" Association="Self.State_Patient">
+            <End Role="State" EntitySet="States" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VitalSigns_Personnel" Association="Self.FK_VitalSigns_Personnel">
+            <End Role="Personnel" EntitySet="Personnels" />
+            <End Role="VitalSigns" EntitySet="VitalSigns" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="heightsemr_dbModelStoreContainer" CdmEntityContainer="heightsemr_dbEntities">
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+                <ScalarProperty Name="countryname" ColumnName="countryname" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="enrollee_type">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.enrollee_type">
+              <MappingFragment StoreEntitySet="enrollee_type">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HMOes">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.HMO">
+              <MappingFragment StoreEntitySet="HMO">
+                <ScalarProperty Name="hmoid" ColumnName="hmoid" />
+                <ScalarProperty Name="hmoname" ColumnName="hmoname" />
+                <ScalarProperty Name="hmoaddress" ColumnName="hmoaddress" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="hmocountry" ColumnName="hmocountry" />
+                <ScalarProperty Name="hmocontact" ColumnName="hmocontact" />
+                <ScalarProperty Name="hmophone1" ColumnName="hmophone1" />
+                <ScalarProperty Name="hmophone2" ColumnName="hmophone2" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="hmonumber" ColumnName="hmonumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="patientid" ColumnName="patientid" />
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="securityid" ColumnName="securityid" />
+                <ScalarProperty Name="securitynumber" ColumnName="securitynumber" />
+                <ScalarProperty Name="maritalstatus" ColumnName="maritalstatus" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+                <ScalarProperty Name="mothername" ColumnName="mothername" />
+                <ScalarProperty Name="guardianname" ColumnName="guardianname" />
+                <ScalarProperty Name="emergencycontact" ColumnName="emergencycontact" />
+                <ScalarProperty Name="emergencyphone" ColumnName="emergencyphone" />
+                <ScalarProperty Name="homephone" ColumnName="homephone" />
+                <ScalarProperty Name="workphone" ColumnName="workphone" />
+                <ScalarProperty Name="mobilephone" ColumnName="mobilephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="photopath" ColumnName="photopath" />
+                <ScalarProperty Name="employername" ColumnName="employername" />
+                <ScalarProperty Name="employeraddress" ColumnName="employeraddress" />
+                <ScalarProperty Name="employercity" ColumnName="employercity" />
+                <ScalarProperty Name="employerstateid" ColumnName="employerstateid" />
+                <ScalarProperty Name="employercountry" ColumnName="employercountry" />
+                <ScalarProperty Name="dateofdeath" ColumnName="dateofdeath" />
+                <ScalarProperty Name="deathcause" ColumnName="deathcause" />
+                <ScalarProperty Name="hmono1" ColumnName="hmono1" />
+                <ScalarProperty Name="hmoname1" ColumnName="hmoname1" />
+                <ScalarProperty Name="hmono2" ColumnName="hmono2" />
+                <ScalarProperty Name="hmoname2" ColumnName="hmoname2" />
+                <ScalarProperty Name="hmono3" ColumnName="hmono3" />
+                <ScalarProperty Name="hmoname3" ColumnName="hmoname3" />
+                <ScalarProperty Name="principalcode" ColumnName="principalcode" />
+                <ScalarProperty Name="relationship" ColumnName="relationship" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+                <ScalarProperty Name="inactive" ColumnName="inactive" />
+                <ScalarProperty Name="cardtypeid" ColumnName="cardtypeid" />
+                <ScalarProperty Name="datedeactivated" ColumnName="datedeactivated" />
+                <ScalarProperty Name="genotype" ColumnName="genotype" />
+                <ScalarProperty Name="bloodgroup" ColumnName="bloodgroup" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+                <ScalarProperty Name="autoid" ColumnName="autoid" />
+                <ScalarProperty Name="servicetype" ColumnName="servicetype" />
+                <ScalarProperty Name="plantype" ColumnName="plantype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personnels">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.Personnel">
+              <MappingFragment StoreEntitySet="Personnel">
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="titleid" ColumnName="titleid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mobilephone" ColumnName="mobilephone" />
+                <ScalarProperty Name="homephone" ColumnName="homephone" />
+                <ScalarProperty Name="workphone" ColumnName="workphone" />
+                <ScalarProperty Name="emergencycontact" ColumnName="emergencycontact" />
+                <ScalarProperty Name="emergencyphone" ColumnName="emergencyphone" />
+                <ScalarProperty Name="designationid" ColumnName="designationid" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="statename" ColumnName="statename" />
+                <ScalarProperty Name="countryid" ColumnName="countryid" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VitalSigns">
+            <EntityTypeMapping TypeName="heightsemr_dbModel.VitalSign">
+              <MappingFragment StoreEntitySet="VitalSigns">
+                <ScalarProperty Name="vitalid" ColumnName="vitalid" />
+                <ScalarProperty Name="patientid" ColumnName="patientid" />
+                <ScalarProperty Name="staffid" ColumnName="staffid" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="pulse" ColumnName="pulse" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="bloodpressure" ColumnName="bloodpressure" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="respiration" ColumnName="respiration" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="isfileattached" ColumnName="isfileattached" />
+                <ScalarProperty Name="docname" ColumnName="docname" />
+                <ScalarProperty Name="docpath" ColumnName="docpath" />
+                <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+                <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+                <ScalarProperty Name="BMI" ColumnName="BMI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
