@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-try",
+  "version": "0.0.0",
+  "description": "NodejsTry",
+  "main": "server.js",
+  "author": {
+    "name": "HEIGHTS",
+    "email": ""
+  }
+}
